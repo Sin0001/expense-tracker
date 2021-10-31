@@ -2,6 +2,11 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const recordSchema = new Schema({
+  id: {
+    type: Number,
+    require: true,
+  },
+
   name: {
     type: String,
     required: true
@@ -15,9 +20,7 @@ const recordSchema = new Schema({
     required: true
   },
   category: {
-    type: Schema.Types.ObjectId,
-    ref: 'Category',
-    index: true,
+    type: String,
     required: true,
   }
 })
