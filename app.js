@@ -3,6 +3,7 @@ const mongoose = require('mongoose') // 載入 mongoose
 const exphbs = require('express-handlebars')
 const bodyParser = require('body-parser')
 const Record = require('./models/record')
+const methodOverride = require('method-override') // 載入method-override
 const app = express()
 const PORT = 3000
 
@@ -23,6 +24,8 @@ app.engine('hbs', exphbs({ defaultLayout: 'main', extname: '.hbs' }))
 app.set('view engine', 'hbs')
 
 app.use(bodyParser.urlencoded({ extended: true }))
+
+app.use(methodOverride('_method')) // 設定每一筆請求都會透過 methodOverride 進行前置處理
 
 //瀏覽首頁
 app.get('/', (req, res) => {
@@ -61,7 +64,7 @@ app.get('/records/:id/edit', (req, res) => {
 })
 
 //送出修改record
-app.post('/records/:id/edit', (req, res) => {
+app.put('/records/:id', (req, res) => {
   const id = req.params.id
   const { name, date, amount, category } = req.body
   return Record.findById(id)
@@ -77,7 +80,7 @@ app.post('/records/:id/edit', (req, res) => {
 })
 
 //刪除record
-app.post('/records/:id/delete', (req, res) => {
+app.delete('/records/:id', (req, res) => {
   const id = req.params.id
   return Record.findById(id)
     .then(record => record.remove())
