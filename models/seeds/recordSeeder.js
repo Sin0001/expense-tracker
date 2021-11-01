@@ -1,9 +1,5 @@
-const mongoose = require('mongoose')
+const db = require('../../config/mongoose')
 const Record = require('../record')
-
-mongoose.connect('mongodb://localhost/expense-tracker')
-
-const db = mongoose.connection
 
 const recordData = [
   { id: 1, name: '午餐', date: '2019-04-23', amount: 60, category: '餐飲食品' },
@@ -12,10 +8,6 @@ const recordData = [
   { id: 4, name: '電影：驚奇隊長', date: '2019-04-23', amount: 220, category: '休閒娛樂' },
   { id: 5, name: '租金', date: '2015-04-01', amount: 25000, category: '家居物業' }
 ]
-
-db.on('error', () => {
-  console.log('mongodb error!')
-})
 
 db.once('open', () => {
   recordData.forEach(record => {
