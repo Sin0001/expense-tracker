@@ -1,17 +1,27 @@
-<ul>
+<form action="">
+  <label for="category">類別</label>
+  <select name="category">
+    <option>家居物業</option>
+    <option>交通出行</option>
+    <option>休閒娛樂</option>
+    <option>餐飲食品</option>
+    <option>其他</option>
+  </select>
+</form>
+
+<div id="totalAmount">
+  <p>總金額：</p>
+  <h4>20000</h4>
+</div>
+
+<div>
   {{#each records}}
-  <li>
-    <div>{{this.id}}</div>
-    <div>{{this.name}}</div>
-    <div>{{this.date}}</div>
-    <div>{{this.amount}}</div>
-    <div>{{this.category}}</div>
-  </li>
+  <div>
+    <i>{{this.category}}</i>
+    <h3>{{this.name}}</h3>
+    <p>{{this.date}}</p>
+    <p>{{this.amount}}</p>
+  </div>
   {{/each}}
-</ul>
-
+</div>
 <a href="./records/new"> create </a>
-
-
-
-
