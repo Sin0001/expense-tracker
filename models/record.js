@@ -2,11 +2,6 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const recordSchema = new Schema({
-  id: {
-    type: Number,
-    require: true,
-  },
-
   name: {
     type: String,
     required: true
@@ -22,6 +17,12 @@ const recordSchema = new Schema({
   category: {
     type: String,
     required: true,
+  },
+  userId: {  // 加入關聯設定
+    type: Schema.Types.ObjectId,
+    ref: 'User', //要對應的資料庫文件
+    index: true,
+    required: true
   }
 })
 
