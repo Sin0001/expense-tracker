@@ -1,6 +1,7 @@
 const mongoose = require('mongoose') // 載入 mongoose
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/expense-tracker'
 
-mongoose.connect('mongodb://localhost/expense-tracker') // 設定連線到 mongoDB
+mongoose.connect(MONGODB_URI) // 設定連線到 mongoDB
 
 // 取得資料庫連線狀態
 const db = mongoose.connection
