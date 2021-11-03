@@ -1,5 +1,6 @@
 const express = require('express')
 const session = require('express-session')
+const usePassport = require('./config/passport')
 const exphbs = require('express-handlebars')
 const bodyParser = require('body-parser')
 const methodOverride = require('method-override') // 載入method-override
@@ -20,6 +21,8 @@ app.use(session({
 app.use(bodyParser.urlencoded({ extended: true }))
 
 app.use(methodOverride('_method')) // 設定每一筆請求都會透過 methodOverride 進行前置處理
+
+usePassport(app)
 
 app.use(routes) // 使用routes
 
