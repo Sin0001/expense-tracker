@@ -42,6 +42,6 @@ app.use((req, res, next) => {
 
 app.use(routes) // 使用routes
 
-app.listen( PORT, () => {
+app.listen(PORT, () => {
   console.log(`App is running on http://localhost:${PORT}`)
 })
