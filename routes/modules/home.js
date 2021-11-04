@@ -4,8 +4,10 @@ const Record = require('../../models/record')
 
 //瀏覽首頁
 router.get('/', (req, res) => {
-  Record.find()
+  const userId = req.user._id 
+  Record.find({ userId })
     .lean()
+    //.sort({ _id: 'desc'})
     .then(records => {
       let totalAmount = 0
       records.forEach(record => {
