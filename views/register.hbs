@@ -5,27 +5,27 @@
       {{> message}}
       <form action="/users/register" method="POST">
         <div class="form-group">
-          <label for="name">Name</label>
-          <input type="text" id="name" name="name" class="form-control" placeholder="Enter Name" value="{{name}}">
+          <label for="name">名字</label>
+          <input type="text" id="name" name="name" class="form-control" placeholder="請輸入你的名字" value="{{name}}">
         </div>
         <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" class="form-control" placeholder="Enter Email" value="{{email}}">
+          <label for="email">信箱</label>
+          <input type="email" id="email" name="email" class="form-control" placeholder="請輸入你的Email" value="{{email}}">
         </div>
         <div class="form-group">
-          <label for="password">Password</label>
-          <input type="password" id="password" name="password" class="form-control" placeholder="Enter Password" value="{{password}}">
+          <label for="password">密碼</label>
+          <input type="password" id="password" name="password" class="form-control" placeholder="請輸入你的密碼" value="{{password}}">
         </div>
         <div class="form-group">
-          <label for="confirmPassword">Confirm Password</label>
+          <label for="confirmPassword">確認密碼</label>
           <input type="password" id="confirmPassword" name="confirmPassword" class="form-control"
-            placeholder="Confirm Password" value="{{confirmPassword}}">
+            placeholder="請再次輸入密碼" value="{{confirmPassword}}">
         </div>
-        <button type="submit" class="btn btn-primary btn-block">Register</button>
-        <a href="/auth/facebook" class="btn btn-info btn-block">Facebook Login</a>
+        <button type="submit" class="btn btn-primary btn-block">註冊</button>
+        <a href="/auth/facebook" class="btn btn-info btn-block">臉書登入</a>
       </form>
       <p class="lead mt-4">
-        Have An Account? <a href="/users/login">Login</a>
+        已經有帳號了? <a href="/users/login">登入</a>
       </p>
     </div>
   </div>
