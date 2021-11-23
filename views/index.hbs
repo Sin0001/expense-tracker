@@ -1,13 +1,12 @@
 <div class="form-group justify-content-center">
     <form action="/filter" id="filter" onchange="filter.submit()">
       <select class="form-control" id="category" name="category">
-        <option>類別</option>
-        <option value="all">全部</option>
-        <option value="home">家居物業</option>
-        <option value="transportation">交通出行</option>
-        <option value="entertainment">休閒娛樂</option>
-        <option value="food">餐飲食品</option>
-        <option value="else">其他</option>
+        <option value="all" {{{isSelected category 'all' }}}>全部</option>
+        <option value="home" {{{isSelected category 'home' }}}>家居物業</option>
+        <option value="transportation" {{{isSelected category 'transportation' }}}>交通出行</option>
+        <option value="entertainment" {{{isSelected category 'entertainment' }}}>休閒娛樂</option>
+        <option value="food" {{{isSelected category 'food' }}}>餐飲食品</option>
+        <option value="else" {{{isSelected category 'else' }}}>其他</option>
       </select>
     </form>
 </div>
@@ -15,7 +14,7 @@
 <div class="row mx-1 mb-3">
   <div class="col-12 bg-dark rounded pt-3">
     <h4 class="text-white">總金額：</h4>
-    <h1 class="text-right text-warning">$<spn class="totalAmount">{{totalAmount}}</spn>
+    <h1 class="text-right text-warning">$<spn class="totalAmount">{{totalAmount records}}</spn>
     </h1>
   </div>
 </div>
@@ -26,7 +25,7 @@
   <ul class="list-group w-100">
     <li class="list-group-item d-flex px-0 my-2 border-0">
       <div class="col-8 d-flex pr-0 align-items-center">
-        <h2 class="m-0 text-info" style="width: 10%;"><i class="{{ this.icon }}" style="font-size:100%"></i></h2>
+        <h2 class="m-0 text-info" style="width: 10%;"><i class="{{ this.category.categoryIcon }}" style="font-size:100%"></i></h2>
         <div class="flex-grow-1 ml-2 text-dark">
           <h4 class="m-0 mb-1">{{ this.name }}</h4>
           <small class="d-block">{{ this.date }}</small>
